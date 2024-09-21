@@ -7,7 +7,7 @@
   "scripts": {
     "build": "unbuild",
     "prepublishOnly": "npm run build",
-    "test": "vitest test --run --no-file-parallelism",
+    "test": "vitest test --run  --no-isolate --no-file-parallelism --reporter=verbose",
     "dev": "node --loader ts-node/esm ./src/index.ts",
     "dev:express-legacy-starter": "pnpm --filter express-legacy-starter run dev",
     "dev:express-websocket-legacy-starter": "pnpm --filter express-legacy-starter run dev",
