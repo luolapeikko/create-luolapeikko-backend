@@ -1,0 +1,29 @@
+{
+    "name": "express-websocket-legacy-starter",
+    "version": "0.0.1",
+    "main": "dist/service.js",
+    "type": "module",
+    "engines": {
+        "engineStrict": "true",
+        "node": ">=18.0.0"
+    },
+    "dependencies": {
+        "express": "^4.21.0",
+        "express-ws": "^5.0.2",
+        "source-map-support": "0.5.21"
+    },
+    "devDependencies": {
+        "@tsconfig/node18": "^18.2.4",
+        "@types/express": "^4.17.21",
+        "@types/express-ws": "^3.0.5",
+        "@types/node": "^22.5.5",
+        "nodemon": "^3.1.7",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.6.2"
+    },
+    "scripts": {
+        "build": "tsc",
+        "dev": "nodemon",
+        "start": "node -r source-map-support/register ./dist/service.js"
+    }
+}

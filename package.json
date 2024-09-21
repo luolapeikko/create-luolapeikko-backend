@@ -1,0 +1,66 @@
+{
+  "name": "create-luolapeikko-backend",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "An easy way to start Javascript backend project",
+  "main": "index.js",
+  "scripts": {
+    "build": "unbuild",
+    "prepublishOnly": "npm run build",
+    "test": "vitest test --run --no-file-parallelism",
+    "dev": "node --loader ts-node/esm ./src/index.ts",
+    "dev:express-legacy-starter": "pnpm --filter express-legacy-starter run dev",
+    "dev:express-websocket-legacy-starter": "pnpm --filter express-legacy-starter run dev",
+    "build:express-legacy-starter": "pnpm --filter express-legacy-starter run build",
+    "build:express-websocket-legacy-starter": "pnpm --filter express-websocket-legacy-starter run build",
+    "start:express-legacy-starter": "pnpm --filter express-legacy-starter start",
+    "build:templates": "pnpm -r build",
+    "start": "node ./index.js"
+  },
+  "files": [
+    "index.js",
+    "template-*",
+    "dist"
+  ],
+  "bin": {
+    "create-vite": "index.js",
+    "cva": "index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "template-express-legacy/",
+    "template-express-websocket-legacy/",
+    "template-hono/"
+  ],
+  "devDependencies": {
+    "@stylistic/eslint-plugin": "^2.8.0",
+    "@stylistic/eslint-plugin-ts": "^2.8.0",
+    "@tsconfig/node18": "^18.2.4",
+    "@types/minimist": "^1.2.5",
+    "@types/node": "^22.5.5",
+    "@types/prompts": "^2.4.9",
+    "@typescript-eslint/eslint-plugin": "^8.6.0",
+    "@typescript-eslint/parser": "^8.6.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-deprecation": "^3.0.0",
+    "eslint-plugin-jsdoc": "^50.2.4",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-sonarjs": "^0.23.0",
+    "express-legacy-starter": "file:template-express-legacy",
+    "express-websocket-legacy-starter": "file:template-express-websocket-legacy",
+    "hono-starter": "file:template-hono",
+    "minimist": "^1.2.8",
+    "picocolors": "1.1.0",
+    "prettier": "^3.3.3",
+    "prompts": "^2.4.2",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.7.0",
+    "unbuild": "2.0.0",
+    "vite": "^5.4.7",
+    "vitest": "^2.1.1"
+  }
+}
