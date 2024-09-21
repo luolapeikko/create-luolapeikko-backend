@@ -34,6 +34,7 @@
     "template-express-websocket-legacy/",
     "template-hono/"
   ],
+  "repository": "github:luolapeikko/create-luolapeikko-backend",
   "devDependencies": {
     "@stylistic/eslint-plugin": "^2.8.0",
     "@stylistic/eslint-plugin-ts": "^2.8.0",
