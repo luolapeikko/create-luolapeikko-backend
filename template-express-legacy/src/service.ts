@@ -1,16 +1,30 @@
 import express from 'express';
 import {type Server} from 'http';
 import {setupExpress} from './middleware.js';
+import {type AddressInfo} from 'node:net';
 
 const app = express();
 
+function printAddress(address: AddressInfo | string | null): string {
+	if (address === null) {
+		return 'null';
+	}
+	if (typeof address === 'string') {
+		return address;
+	}
+	if (address.family === 'IPv6') {
+		return `[${address.address}]:${address.port}`;
+	}
+	return `${address.address}:${address.port}`;
+}
+
 let server: undefined | Server;
-export function startExpress(port: string | number): Promise<express.Express> {
+export function startExpress(port: string | number): Promise<{app: express.Express; address: AddressInfo | string | null}> {
 	setupExpress(app);
 	return new Promise((resolve, reject) => {
 		try {
 			server = app.listen(port, () => {
-				resolve(app);
+				resolve({app, address: server?.address() || null});
 			});
 		} catch (error) {
 			reject(error);
@@ -37,8 +51,8 @@ export function stopExpress(): Promise<void> {
 
 export async function startAll(): Promise<void> {
 	const httpPort = process.env.PORT || 3000;
-	await startExpress(httpPort);
-	console.info(`express listening on port ${httpPort} [${process.env.NODE_ENV}]`);
+	const {address} = await startExpress(httpPort);
+	console.info(`express listening on ${printAddress(address)} [${process.env.NODE_ENV}]`);
 }
 
 export async function stopAll(): Promise<void> {

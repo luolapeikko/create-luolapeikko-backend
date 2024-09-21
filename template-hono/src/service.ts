@@ -11,7 +11,20 @@ const app = new Hono();
 
 let server: ServerType | undefined;
 
-export function startHono(port: number | undefined): Promise<AddressInfo> {
+function printAddress(address: AddressInfo | string | null): string {
+	if (address === null) {
+		return 'null';
+	}
+	if (typeof address === 'string') {
+		return address;
+	}
+	if (address.family === 'IPv6') {
+		return `[${address.address}]:${address.port}`;
+	}
+	return `${address.address}:${address.port}`;
+}
+
+export function startHono(port: number | undefined): Promise<{app: Hono; address: AddressInfo}> {
 	setupHono(app);
 	return new Promise((resolve, reject) => {
 		try {
@@ -20,8 +33,8 @@ export function startHono(port: number | undefined): Promise<AddressInfo> {
 					fetch: app.fetch,
 					port,
 				},
-				(info) => {
-					resolve(info);
+				(address) => {
+					resolve({app, address});
 				},
 			);
 		} catch (error) {
@@ -52,8 +65,8 @@ export async function startAll(): Promise<void> {
 	if (httpPort && isNaN(httpPort)) {
 		throw new Error(`Invalid port number ${process.env.PORT}`);
 	}
-	await startHono(httpPort);
-	console.info(`hono listening on port ${httpPort} [${process.env.NODE_ENV}]`);
+	const {address} = await startHono(httpPort);
+	console.info(`hono listening on ${printAddress(address)} [${process.env.NODE_ENV}]`);
 }
 
 export async function stopAll(): Promise<void> {
