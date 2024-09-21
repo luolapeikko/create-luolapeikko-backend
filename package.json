@@ -23,8 +23,7 @@
     "dist"
   ],
   "bin": {
-    "create-vite": "index.js",
-    "cva": "index.js"
+    "create-luolapeikko-backend": "index.js"
   },
   "keywords": [],
   "author": "",
