@@ -69,8 +69,8 @@ jobs:
 
       - name: clean up testing artifacts from templates
         run: |
-          rm -f templates-*/node_modules
-          rm -f templates-*/dist
+          rm -f template-*/node_modules
+          rm -f template-*/dist
 
       - name: Run and publish code coverage
         if: |
