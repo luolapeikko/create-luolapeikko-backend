@@ -1,10 +1,12 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 /* eslint-disable sonarjs/cognitive-complexity */
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import {isTemplateKey, TemplateKey, templateList} from './templates.js';
+import {handleWorkspace, isPackageManager, runPackagerCommand} from './packageManager.js';
+import {isTemplateKey, type TemplateKey, templateList} from './templates.js';
 import colors from 'picocolors';
 import {fileURLToPath} from 'node:url';
 import fs from 'node:fs';
@@ -12,31 +14,52 @@ import minimist from 'minimist';
 import path from 'node:path';
 import prompts from 'prompts';
 
-const {greenBright, red, redBright, reset} = colors;
+const {greenBright, red, redBright, blue, reset, green} = colors;
 
 const argv = minimist<{
 	template?: string;
 	t?: string;
 	help?: boolean;
 	verbose?: boolean;
+	'package-manager'?: string;
+	workspace?: string;
 }>(process.argv.slice(2), {
 	default: {help: false},
-	alias: {h: 'help', t: 'template', v: 'verbose'},
+	alias: {h: 'help', t: 'template', p: 'package-manager', v: 'verbose', w: 'workspace'},
 	string: ['_'],
 });
 const cwd = process.cwd();
 
+function getError(err: unknown): Error {
+	return err instanceof Error ? err : new Error(String(err));
+}
+
+const templateListText = templateList.map((template) => `  -t ${template.key} ${green('// ' + template.name)}`).join('\n');
+
 const helpMessage = `\
-Usage: create-luolapeikko-backend [OPTION]... [DIRECTORY]
+Usage: create-luolapeikko-backend [OPTIONS]... [DIRECTORY]
 
 Create a new Backend project in TypeScript.
 With no arguments, start the CLI in interactive mode.
 
 Options:
-  -t, --template NAME        use a specific template
-  -v, --verbose              print additional logs
+  -t, --template NAME        Use a specific template.
+  -v, --verbose              Print additional logs.
+  -h, --help                 Display this help message.
+  -p, --package-manager      Use a specific package manager, else display setup instructions.
+  -w, --workspace            If have workspace setup, use this to install dependencies in workspace.
 
-Available templates:`;
+Available templates:
+${templateListText}`;
+
+function showSetupDone(path: string) {
+	return `${greenBright('SETUP DONE')} on directory '${path}'
+You can now run the following commands: (or with yarn, pnpm etc.)
+cd ${path}
+npm install
+npm run dev
+`;
+}
 
 function formatTargetDir(targetDir: string | undefined) {
 	return targetDir?.trim().replace(/\/+$/g, '');
@@ -97,7 +120,9 @@ function emptyDir(dir: string) {
 		if (file === '.git') {
 			continue;
 		}
-		console.log(`${redBright('REMOVE')} ${path.resolve(dir, file)}`);
+		if (argv.verbose) {
+			console.log(`${redBright('REMOVE')} ${path.resolve(dir, file)}`);
+		}
 		fs.rmSync(path.resolve(dir, file), {recursive: true, force: true});
 	}
 }
@@ -116,6 +141,9 @@ async function init() {
 		console.log(helpMessage);
 		return;
 	}
+	const version = process.env.npm_package_version;
+	const versionText = version ? `version: ${blue(version)}` : '';
+	console.log(`\n${greenBright('Welcome to the Luolapeikko Backend CLI')} ${versionText}\n`);
 	let targetDir = argTargetDir || defaultTargetDir;
 	const getProjectName = () => (targetDir === '.' ? path.basename(path.resolve()) : targetDir);
 
@@ -187,8 +215,8 @@ async function init() {
 				},
 			},
 		);
-	} catch (cancelled: any) {
-		console.log(cancelled.message);
+	} catch (err) {
+		console.log(getError(err).message);
 		return;
 	}
 
@@ -235,10 +263,26 @@ async function init() {
 	const pkg = JSON.parse(fs.readFileSync(path.join(templateDir, `package.json`), 'utf-8'));
 	pkg.name = packageName || getProjectName();
 	write('package.json', JSON.stringify(pkg, null, 2) + '\n');
-
-	return Promise.resolve();
+	const packageManager = argv['package-manager'];
+	// if have package manager defined, install dependencies
+	if (isPackageManager(packageManager)) {
+		if (argv.verbose) {
+			console.log(`${blue('CHDIR')} ${root}`);
+		}
+		// nodejs change directory to target directory
+		process.chdir(root);
+		const npmArgs = handleWorkspace(packageManager, ['install'], argv.workspace);
+		if (argv.verbose) {
+			console.log(`${blue('RUN')} ${packageManager} ${npmArgs.join(' ')}`);
+		}
+		// run package manager command to install dependencies
+		runPackagerCommand(packageManager, npmArgs);
+		console.log(`${greenBright('SETUP DONE')} on directory '${root}`);
+	} else {
+		console.log(showSetupDone(path.relative(cwd, root)));
+	}
 }
 
 init().catch((e: unknown) => {
-	console.error('Fata', e);
+	console.error('Fatal', e);
 });

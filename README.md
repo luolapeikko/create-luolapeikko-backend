@@ -15,3 +15,11 @@ npm create luolapeikko-backend@latest backend -- --template express-websocket-le
 
 pnpm create luolapeikko-backend backend --template express-websocket-legacy-starter
 ```
+
+## Options
+
+- `-t`, `--template` - Template to use
+- `-v`, `--verbose` - Verbose output
+- `-h`, `--help` - Display help
+- `-p`, `--package-manager` - Package manager to use [npm, pnpm, yarn, bun]
+- `-w`, `--workspace` - Workspace to use

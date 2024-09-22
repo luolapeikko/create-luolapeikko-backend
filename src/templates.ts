@@ -14,6 +14,11 @@ export const templateList = [
 		key: 'hono-starter',
 		dir: 'template-hono',
 	},
+	{
+		name: 'Fastify template',
+		key: 'fastify-starter',
+		dir: 'template-fastify',
+	},
 ] as const;
 
 export type TemplateKey = (typeof templateList)[number]['key'];
