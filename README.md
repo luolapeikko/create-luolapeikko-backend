@@ -7,6 +7,7 @@ Base NodeJS backend install cli
 - "express-legacy-starter"
 - "express-websocket-legacy-starter"
 - "hono-starter"
+- "fastify-starter"
 
 ## Usage
 
