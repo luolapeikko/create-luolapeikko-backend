@@ -1,6 +1,6 @@
 {
   "name": "create-luolapeikko-backend",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "type": "module",
   "description": "An easy way to start Javascript backend project",
   "main": "index.js",
