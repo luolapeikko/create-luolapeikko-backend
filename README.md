@@ -24,3 +24,7 @@ pnpm create luolapeikko-backend backend --template express-websocket-legacy-star
 - `-h`, `--help` - Display help
 - `-p`, `--package-manager` - Package manager to use [npm, pnpm, yarn, bun]
 - `-w`, `--workspace` - Workspace to use
+
+## Future changes
+
+- New service class based templates for Express. (more controllable design for bigger projects)

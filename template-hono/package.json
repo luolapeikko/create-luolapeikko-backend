@@ -5,7 +5,7 @@
     "type": "module",
     "engines": {
         "engineStrict": "true",
-        "node": ">=18.0.0"
+        "node": ">=18.4.0"
     },
     "dependencies": {
         "@hono/node-server": "1.13.1",

@@ -1,9 +1,7 @@
+import {type AddressInfo} from 'node:net';
 import express from 'express';
 import {type Server} from 'http';
 import {setupExpress} from './middleware.js';
-import {type AddressInfo} from 'node:net';
-
-const app = express();
 
 function printAddress(address: AddressInfo | string | null): string {
 	if (address === null) {
@@ -20,6 +18,7 @@ function printAddress(address: AddressInfo | string | null): string {
 
 let server: undefined | Server;
 export function startExpress(port: string | number): Promise<{app: express.Express; address: AddressInfo | string | null}> {
+	const app = express();
 	setupExpress(app);
 	return new Promise((resolve, reject) => {
 		try {

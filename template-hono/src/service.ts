@@ -7,8 +7,6 @@ import {setupHono} from './middleware.js';
 export type HonoEnv = BlankEnv;
 export type HonoSchema = BlankSchema;
 
-const app = new Hono();
-
 let server: ServerType | undefined;
 
 function printAddress(address: AddressInfo | string | null): string {
@@ -25,6 +23,7 @@ function printAddress(address: AddressInfo | string | null): string {
 }
 
 export function startHono(port: number | undefined): Promise<{app: Hono; address: AddressInfo}> {
+	const app = new Hono();
 	setupHono(app);
 	return new Promise((resolve, reject) => {
 		try {
