@@ -1,0 +1,20 @@
+{
+  "name": "encore-starter",
+  "version": "0.0.1",
+  "type": "module",
+  "engines": {
+    "engineStrict": "true",
+    "node": ">=18.4.0"
+  },
+  "dependencies": {
+    "encore.dev": "^1.41.7"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^18.2.4",
+    "@types/node": "^22.7.4",
+    "typescript": "^5.6.2"
+  },
+  "scripts": {
+    "start": "encore run"
+  }
+}

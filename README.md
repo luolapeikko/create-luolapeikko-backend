@@ -4,17 +4,18 @@ Base NodeJS backend install cli
 
 ## Templates
 
-- "express-legacy-starter"
-- "express-websocket-legacy-starter"
+- "express-starter"
+- "express-websocket-starter"
 - "hono-starter"
 - "fastify-starter"
+- "encore-starter"
 
 ## Usage
 
 ```bash
-npm create luolapeikko-backend@latest backend -- --template express-websocket-legacy-starter
+npm create luolapeikko-backend@latest backend -- --template express-websocket-starter
 
-pnpm create luolapeikko-backend backend --template express-websocket-legacy-starter
+pnpm create luolapeikko-backend backend --template express-websocket-starter
 ```
 
 ## Options

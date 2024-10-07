@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../encore.gen/internal/entrypoints/combined/main.ts", "../../../../hello/hello.ts"],
+  "sourcesContent": ["import { registerGateways, registerHandlers, run, type Handler } from \"encore.dev/internal/codegen/appinit\";\n\nimport { get as hello_getImpl0 } from \"../../../../hello\\\\hello\";\n\n\nconst gateways: any[] = [\n];\n\nconst handlers: Handler[] = [\n    {\n        service:   \"hello\",\n        name:      \"get\",\n        handler:   hello_getImpl0,\n        raw:       false,\n        streaming: false,\n    },\n];\n\nregisterGateways(gateways);\nregisterHandlers(handlers);\n\nawait run();\n", "import {api} from 'encore.dev/api';\n\ninterface Response {\n\tmessage: string;\n}\n\nexport const get = api({expose: true, method: 'GET', path: '/api/hello'}, (): Response => {\n\treturn {message: 'Hello World'};\n});\n"],
+  "mappings": ";;;;;AAAA,SAAS,kBAAkB,kBAAkB,WAAyB;;;ACAtE,SAAQ,WAAU;AAMX,IAAM,MAAM,IAAI,EAAC,QAAQ,MAAM,QAAQ,OAAO,MAAM,aAAY,GAAG,MAAgB;AACzF,SAAO,EAAC,SAAS,cAAa;AAC/B,CAAC;;;ADHD,IAAM,WAAkB,CACxB;AAEA,IAAM,WAAsB;AAAA,EACxB;AAAA,IACI,SAAW;AAAA,IACX,MAAW;AAAA,IACX,SAAW;AAAA,IACX,KAAW;AAAA,IACX,WAAW;AAAA,EACf;AACJ;AAEA,iBAAiB,QAAQ;AACzB,iBAAiB,QAAQ;AAEzB,MAAM,IAAI;",
+  "names": []
+}

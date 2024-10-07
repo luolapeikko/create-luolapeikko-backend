@@ -1,5 +1,5 @@
 {
-    "name": "express-websocket-legacy-starter",
+    "name": "express-websocket-starter",
     "version": "0.0.1",
     "main": "dist/service.js",
     "type": "module",

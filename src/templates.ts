@@ -1,13 +1,13 @@
 export const templateList = [
 	{
-		name: 'Legacy Express template',
-		key: 'express-legacy-starter',
-		dir: 'template-express-legacy',
+		name: 'Express template',
+		key: 'express-starter',
+		dir: 'template-express',
 	},
 	{
-		name: 'Legacy Express websocket template',
-		key: 'express-websocket-legacy-starter',
-		dir: 'template-express-websocket-legacy',
+		name: 'Express websocket template',
+		key: 'express-websocket-starter',
+		dir: 'template-express-websocket',
 	},
 	{
 		name: 'Hono template',
@@ -19,9 +19,17 @@ export const templateList = [
 		key: 'fastify-starter',
 		dir: 'template-fastify',
 	},
+	{
+		name: 'Encore template',
+		key: 'encore-starter',
+		dir: 'template-encore',
+		startScript: 'start',
+	},
 ] as const;
 
-export type TemplateKey = (typeof templateList)[number]['key'];
+export type Template = (typeof templateList)[number];
+
+export type TemplateKey = Template['key'];
 
 export function isTemplateKey(key: string | undefined): key is TemplateKey {
 	return templateList.some((template) => template.key === key);

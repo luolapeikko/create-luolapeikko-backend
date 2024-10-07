@@ -3,12 +3,12 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 import './common.js';
 import {describe, expect, it} from 'vitest';
-import {startAll, stopAll} from 'express-legacy-starter';
+import {startAll, stopAll} from 'express-websocket-starter';
 
 process.env.PORT = '9898';
 
-describe('express-websocket-legacy-starter', () => {
-	it('should start express-websocket-legacy-starter', async () => {
+describe('express-websocket-starter', () => {
+	it('should start web service', async () => {
 		await expect(startAll()).resolves.toBe(undefined);
 	});
 	it('should get hello world json', async () => {
@@ -16,7 +16,7 @@ describe('express-websocket-legacy-starter', () => {
 		expect(res.status).toBe(200);
 		await expect(res.json()).resolves.toEqual({message: 'Hello World'});
 	});
-	it('should stop express-websocket-legacy-starter', async () => {
+	it('should stop web service', async () => {
 		await expect(stopAll()).resolves.toBe(undefined);
 	});
 });

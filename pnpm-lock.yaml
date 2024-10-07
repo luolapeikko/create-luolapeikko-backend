@@ -59,12 +59,12 @@ importers:
       eslint-plugin-sonarjs:
         specifier: ^0.23.0
         version: 0.23.0(eslint@8.57.1)
-      express-legacy-starter:
-        specifier: file:template-express-legacy
-        version: link:template-express-legacy
-      express-websocket-legacy-starter:
-        specifier: file:template-express-websocket-legacy
-        version: link:template-express-websocket-legacy
+      express-starter:
+        specifier: file:template-express
+        version: link:template-express
+      express-websocket-starter:
+        specifier: file:template-express-websocket
+        version: link:template-express-websocket
       fastify-starter:
         specifier: file:template-fastify
         version: link:template-fastify
@@ -99,7 +99,7 @@ importers:
         specifier: ^2.1.1
         version: 2.1.1(@types/node@22.5.5)
 
-  template-express-legacy:
+  template-express:
     dependencies:
       express:
         specifier: ^4.21.0
@@ -127,7 +127,7 @@ importers:
         specifier: ^5.6.2
         version: 5.6.2
 
-  template-express-websocket-legacy:
+  template-express-websocket:
     dependencies:
       express:
         specifier: ^4.21.0

@@ -6,7 +6,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import {handleWorkspace, isPackageManager, runPackagerCommand} from './packageManager.js';
-import {isTemplateKey, type TemplateKey, templateList} from './templates.js';
+import {isTemplateKey, type Template, type TemplateKey, templateList} from './templates.js';
 import colors from 'picocolors';
 import {fileURLToPath} from 'node:url';
 import fs from 'node:fs';
@@ -52,12 +52,13 @@ Options:
 Available templates:
 ${templateListText}`;
 
-function showSetupDone(path: string) {
+function showSetupDone(path: string, template: Template) {
+	const runCommand = 'startScript' in template ? `npm ${template.startScript}` : 'npm run dev';
 	return `${greenBright('SETUP DONE')} on directory '${path}'
 You can now run the following commands: (or with yarn, pnpm etc.)
 cd ${path}
 npm install
-npm run dev
+${runCommand}
 `;
 }
 
@@ -89,7 +90,7 @@ const renameFiles: Record<string, string | undefined> = {
 	_gitignore: '.gitignore',
 };
 
-const copyIgnore = new Set(['dist', 'node_modules', 'package.json']);
+const copyIgnore = new Set(['dist', 'node_modules', 'package.json', 'package-lock.json', '.encore', 'encore.gen']);
 
 function copy(src: string, dest: string): void {
 	const stat = fs.statSync(src);
@@ -279,7 +280,7 @@ async function init() {
 		runPackagerCommand(packageManager, npmArgs);
 		console.log(`${greenBright('SETUP DONE')} on directory '${root}`);
 	} else {
-		console.log(showSetupDone(path.relative(cwd, root)));
+		console.log(showSetupDone(path.relative(cwd, root), template));
 	}
 }
 
