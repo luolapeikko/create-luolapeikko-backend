@@ -1,4 +1,5 @@
 packages:
+  - template-encore/
   - template-express/
   - template-express-websocket/
   - template-hono/

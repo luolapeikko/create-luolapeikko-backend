@@ -1,9 +1,9 @@
-import express from 'express';
-import expressWebsocket, {Application} from 'express-ws';
 import {type Server} from 'http';
-import {setupExpress} from './middleware.js';
-import {socketWatchList} from './lib/websocket/index.js';
 import {type AddressInfo} from 'node:net';
+import express from 'express';
+import expressWebsocket, {type Application} from 'express-ws';
+import {setupExpress} from './expressConfig.js';
+import {socketWatchList} from './lib/websocket/index.js';
 
 const expressWs = expressWebsocket(express());
 const app = expressWs.app;

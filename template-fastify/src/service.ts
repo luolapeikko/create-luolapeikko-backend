@@ -1,6 +1,6 @@
-import Fastify, {type FastifyInstance, type FastifyListenOptions} from 'fastify';
 import {type AddressInfo} from 'node:net';
-import {setupFastify} from './middleware.js';
+import Fastify, {type FastifyInstance, type FastifyListenOptions} from 'fastify';
+import {setupFastify} from './fastifyConfig.js';
 
 let app: FastifyInstance | undefined;
 

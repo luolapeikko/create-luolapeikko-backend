@@ -1,8 +1,8 @@
-import {type BlankEnv, type BlankSchema} from 'hono/types';
-import {serve, type ServerType} from '@hono/node-server';
 import {type AddressInfo} from 'node:net';
+import {serve, type ServerType} from '@hono/node-server';
 import {Hono} from 'hono';
-import {setupHono} from './middleware.js';
+import {type BlankEnv, type BlankSchema} from 'hono/types';
+import {setupHono} from './honoConfig.js';
 
 export type HonoEnv = BlankEnv;
 export type HonoSchema = BlankSchema;

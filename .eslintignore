@@ -2,3 +2,7 @@
 node_modules
 template-*/dist
 template-*/node_modules
+vite.config.mts
+encore.gen
+sandbox
+build.config.ts

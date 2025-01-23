@@ -5,14 +5,14 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import minimist from 'minimist';
+import colors from 'picocolors';
+import prompts from 'prompts';
 import {handleWorkspace, isPackageManager, runPackagerCommand} from './packageManager.js';
 import {isTemplateKey, type Template, type TemplateKey, templateList} from './templates.js';
-import colors from 'picocolors';
-import {fileURLToPath} from 'node:url';
-import fs from 'node:fs';
-import minimist from 'minimist';
-import path from 'node:path';
-import prompts from 'prompts';
 
 const {greenBright, red, redBright, blue, reset, green} = colors;
 

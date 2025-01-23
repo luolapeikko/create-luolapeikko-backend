@@ -7,12 +7,12 @@
     "node": ">=18.4.0"
   },
   "dependencies": {
-    "encore.dev": "^1.41.7"
+    "encore.dev": "^1.46.0"
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.4",
-    "@types/node": "^22.7.4",
-    "typescript": "^5.6.2"
+    "@types/node": "^22.10.8",
+    "typescript": "^5.7.3"
   },
   "scripts": {
     "start": "encore run"

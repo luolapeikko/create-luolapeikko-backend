@@ -1,5 +1,5 @@
-import {getRouter as getHelloRouter} from './hello.js';
 import {Router} from 'express';
+import {getRouter as getHelloRouter} from './hello.js';
 
 export function getRouter(): Router {
 	const router = Router();

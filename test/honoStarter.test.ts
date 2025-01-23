@@ -1,9 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import {describe, expect, it} from 'vitest';
-import {startAll, stopAll} from 'hono-starter';
 import {sleep} from './common.js';
+import {startAll, stopAll} from 'hono-starter';
 
 process.env.PORT = '9898';
 

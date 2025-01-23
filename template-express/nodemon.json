@@ -5,5 +5,5 @@
 	"ext": "ts",
 	"delay": "500",
 	"signal": "SIGINT",
-	"exec": "node --inspect=0.0.0.0 --expose-gc --inspect --loader ts-node/esm -r source-map-support/register ./src/service.ts"
+	"exec": "tsx --inspect=0.0.0.0 --expose-gc --inspect -r source-map-support/register ./src/service.ts"
 }

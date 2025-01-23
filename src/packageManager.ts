@@ -1,5 +1,5 @@
-import spawn from 'cross-spawn';
 import {type SpawnSyncReturns} from 'node:child_process';
+import {sync} from 'cross-spawn';
 const packageManagers = ['npm', 'yarn', 'pnpm', 'bun'];
 
 type PackageManager = (typeof packageManagers)[number];
@@ -9,7 +9,7 @@ export function isPackageManager(value: unknown): value is PackageManager {
 }
 
 export function runPackagerCommand(manager: PackageManager, commands: string[]): SpawnSyncReturns<Buffer> {
-	return spawn.sync(manager, commands, {
+	return sync(manager, commands, {
 		stdio: 'inherit',
 	});
 }

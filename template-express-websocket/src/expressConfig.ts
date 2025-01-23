@@ -1,9 +1,10 @@
-import {type Express, json, urlencoded} from 'express';
+import {json, urlencoded} from 'express';
+import {type Application} from 'express-ws';
+import {HttpError} from './lib/HttpError.js';
 import {errorMiddleWare} from './middlewares/errorMiddleware.js';
 import {getRouter} from './routes/index.js';
-import {HttpError} from './lib/HttpError.js';
 
-export function setupExpress(app: Express): void {
+export function setupExpress(app: Application): void {
 	// express settings, disable automatic etag and x-powered-by
 	app.set('etag', false);
 	app.disable('x-powered-by');

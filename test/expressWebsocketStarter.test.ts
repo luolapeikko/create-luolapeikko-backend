@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import './common.js';
 import {describe, expect, it} from 'vitest';
 import {startAll, stopAll} from 'express-websocket-starter';
