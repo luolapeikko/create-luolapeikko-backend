@@ -1,6 +1,6 @@
 import {type RequestHandler, Router} from 'express';
 
-const getHello: RequestHandler<never, {message: string}> = (req, res, next) => {
+const getHello: RequestHandler<never, {message: string}> = (_req, res, next) => {
 	try {
 		res.json({message: 'Hello World'});
 	} catch (error) {

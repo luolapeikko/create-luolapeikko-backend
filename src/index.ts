@@ -34,7 +34,7 @@ function getError(err: unknown): Error {
 	return err instanceof Error ? err : new Error(String(err));
 }
 
-const templateListText = templateList.map((template) => `  -t ${template.key} ${green('// ' + template.name)}`).join('\n');
+const templateListText = templateList.map((template) => `  -t ${template.key} ${green(`// ${template.name}`)}`).join('\n');
 
 const helpMessage = `\
 Usage: create-luolapeikko-backend [OPTIONS]... [DIRECTORY]
@@ -95,12 +95,14 @@ const copyIgnore = new Set(['dist', 'node_modules', 'package.json', 'package-loc
 function copy(src: string, dest: string): void {
 	const stat = fs.statSync(src);
 	if (stat.isDirectory()) {
-		return copyDir(src, dest);
+		copyDir(src, dest);
+		return;
 	} else {
 		if (argv.verbose) {
 			console.log(`${greenBright('COPY')} ${dest}`);
 		}
-		return fs.copyFileSync(src, dest);
+		fs.copyFileSync(src, dest);
+		return;
 	}
 }
 
@@ -133,6 +135,7 @@ function getArgTemplate(): TemplateKey | undefined {
 	return isTemplateKey(argTemplate) ? argTemplate : undefined;
 }
 
+// biome-ignore lint/complexity/noExcessiveCognitiveComplexity: later
 async function init() {
 	// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 	const argTargetDir = formatTargetDir(argv._[0]);
@@ -169,7 +172,7 @@ async function init() {
 				{
 					type: () => (!fs.existsSync(targetDir) || isEmpty(targetDir) ? null : 'select'),
 					name: 'overwrite',
-					message: () => (targetDir === '.' ? 'Current directory' : `Target directory "${targetDir}"`) + ` is not empty. Please choose how to proceed:`,
+					message: () => `${targetDir === '.' ? 'Current directory' : `Target directory "${targetDir}"`} is not empty. Please choose how to proceed:`,
 					initial: 0,
 					choices: [
 						{
@@ -263,7 +266,7 @@ async function init() {
 	// create package.json
 	const pkg = JSON.parse(fs.readFileSync(path.join(templateDir, `package.json`), 'utf-8'));
 	pkg.name = packageName || getProjectName();
-	write('package.json', JSON.stringify(pkg, null, 2) + '\n');
+	write('package.json', `${JSON.stringify(pkg, null, 2)}\n`);
 	const packageManager = argv['package-manager'];
 	// if have package manager defined, install dependencies
 	if (isPackageManager(packageManager)) {

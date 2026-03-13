@@ -1,4 +1,4 @@
-import {type RequestHandler} from 'express';
+import type {RequestHandler} from 'express';
 
 const corsOriginList = new Set(['http://localhost:8080']); // Add your origins (browser base URL's) here
 

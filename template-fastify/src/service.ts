@@ -1,4 +1,4 @@
-import {type AddressInfo} from 'node:net';
+import type {AddressInfo} from 'node:net';
 import Fastify, {type FastifyInstance, type FastifyListenOptions} from 'fastify';
 import {setupFastify} from './fastifyConfig.js';
 
@@ -36,7 +36,7 @@ export async function stopFastify(): Promise<void> {
 
 export async function startAll(): Promise<void> {
 	const httpPort = process.env.PORT ? parseInt(process.env.PORT, 10) : undefined;
-	if (httpPort && isNaN(httpPort)) {
+	if (httpPort && Number.isNaN(httpPort)) {
 		throw new Error(`Invalid port number ${process.env.PORT}`);
 	}
 	const {address} = await startFastify({port: httpPort});

@@ -1,5 +1,6 @@
-import {type SpawnSyncReturns} from 'node:child_process';
+import type {SpawnSyncReturns} from 'node:child_process';
 import {sync} from 'cross-spawn';
+
 const packageManagers = ['npm', 'yarn', 'pnpm', 'bun'];
 
 type PackageManager = (typeof packageManagers)[number];

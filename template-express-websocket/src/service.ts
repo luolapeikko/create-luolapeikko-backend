@@ -1,7 +1,7 @@
-import {type Server} from 'http';
-import {type AddressInfo} from 'node:net';
+import type {AddressInfo} from 'node:net';
 import express from 'express';
 import expressWebsocket, {type Application} from 'express-ws';
+import type {Server} from 'http';
 import {setupExpress} from './expressConfig.js';
 import {socketWatchList} from './lib/websocket/index.js';
 
@@ -11,7 +11,9 @@ const app = expressWs.app;
 /** trigger ws close event to all registered callbacks */
 expressWs.getWss().on('connection', (ws) => {
 	ws.on('close', () => {
-		socketWatchList.forEach((wl) => wl(ws));
+		for (const wl of socketWatchList) {
+			wl(ws);
+		}
 	});
 });
 
@@ -46,7 +48,9 @@ export function stopExpress(): Promise<void> {
 	return new Promise((resolve, reject) => {
 		if (server) {
 			// close all ws connections before closing server
-			expressWs.getWss().clients.forEach((ws) => ws.close());
+			for (const ws of expressWs.getWss().clients) {
+				ws.close();
+			}
 			server.close((error) => {
 				if (error) {
 					reject(error);

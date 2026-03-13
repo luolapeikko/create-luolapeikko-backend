@@ -1,4 +1,4 @@
-import {type ErrorRequestHandler} from 'express';
+import type {ErrorRequestHandler} from 'express';
 import {HttpError} from '../lib/HttpError.js';
 
 export const errorMiddleWare: ErrorRequestHandler = (err, _req, res, next) => {

@@ -1,7 +1,7 @@
-import {type AddressInfo} from 'node:net';
-import {serve, type ServerType} from '@hono/node-server';
+import type {AddressInfo} from 'node:net';
+import {type ServerType, serve} from '@hono/node-server';
 import {Hono} from 'hono';
-import {type BlankEnv, type BlankSchema} from 'hono/types';
+import type {BlankEnv, BlankSchema} from 'hono/types';
 import {setupHono} from './honoConfig.js';
 
 export type HonoEnv = BlankEnv;
@@ -61,7 +61,7 @@ export function stopHono(): Promise<void> {
 
 export async function startAll(): Promise<void> {
 	const httpPort = process.env.PORT ? parseInt(process.env.PORT, 10) : undefined;
-	if (httpPort && isNaN(httpPort)) {
+	if (httpPort && Number.isNaN(httpPort)) {
 		throw new Error(`Invalid port number ${process.env.PORT}`);
 	}
 	const {address} = await startHono(httpPort);

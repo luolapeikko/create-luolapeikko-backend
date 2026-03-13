@@ -1,4 +1,4 @@
-import {type RouteHandlerMethod, type RouteOptions} from 'fastify';
+import type {RouteHandlerMethod, RouteOptions} from 'fastify';
 
 export const helloHandler: RouteHandlerMethod = (_req, reply) => {
 	reply.send({message: 'Hello World'});

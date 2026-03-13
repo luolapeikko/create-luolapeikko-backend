@@ -1,6 +1,6 @@
+import {startAll, stopAll} from 'hono-starter';
 import {describe, expect, it} from 'vitest';
 import {sleep} from './common.js';
-import {startAll, stopAll} from 'hono-starter';
 
 process.env.PORT = '9898';
 

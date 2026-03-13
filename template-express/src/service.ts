@@ -1,6 +1,6 @@
-import {type Server} from 'http';
-import {type AddressInfo} from 'node:net';
+import type {AddressInfo} from 'node:net';
 import express from 'express';
+import type {Server} from 'http';
 import {setupExpress} from './expressConfig.js';
 
 function printAddress(address: AddressInfo | string | null): string {

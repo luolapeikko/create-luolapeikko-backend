@@ -1,4 +1,4 @@
-import {type WebsocketRequestHandler} from 'express-ws';
+import type {WebsocketRequestHandler} from 'express-ws';
 
 export type ExpressWebSocket = Parameters<WebsocketRequestHandler>[0]; // get WebSocket type from express-ws
 

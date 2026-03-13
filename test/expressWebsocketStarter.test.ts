@@ -1,6 +1,6 @@
 import './common.js';
-import {describe, expect, it} from 'vitest';
 import {startAll, stopAll} from 'express-websocket-starter';
+import {describe, expect, it} from 'vitest';
 
 process.env.PORT = '9898';
 
