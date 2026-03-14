@@ -1,10 +1,10 @@
 import {json, urlencoded} from 'express';
-import type {Application} from 'express-ws';
+import type {WebSocketExpress} from 'websocket-express';
 import {HttpError} from './lib/HttpError.js';
 import {errorMiddleWare} from './middlewares/errorMiddleware.js';
 import {getRouter} from './routes/index.js';
 
-export function setupExpress(app: Application): void {
+export function setupExpress(app: WebSocketExpress): void {
 	// express settings, disable automatic etag and x-powered-by
 	app.set('etag', false);
 	app.disable('x-powered-by');
@@ -16,7 +16,7 @@ export function setupExpress(app: Application): void {
 	// /api routes
 	app.use('/api', getRouter());
 	// error handling
-	app.get('*', (req, _res, next) => {
+	app.get(/(.*)/, (req, _res, next) => {
 		// block JSON error output for unknown routes (isSilent = true)
 		next(new HttpError(404, 'route_not_found', req.url, true));
 	});

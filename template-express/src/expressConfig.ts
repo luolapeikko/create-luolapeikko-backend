@@ -15,7 +15,7 @@ export function setupExpress(app: Express): void {
 	// /api routes
 	app.use('/api', getRouter());
 	// error handling
-	app.get('*', (req, _res, next) => {
+	app.get(/(.*)/, (req, _res, next) => {
 		// block JSON error output for unknown routes (isSilent = true)
 		next(new HttpError(404, 'route_not_found', req.url, true));
 	});
