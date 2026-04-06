@@ -37,10 +37,10 @@ importers:
         version: link:template-express-websocket
       fastify-starter:
         specifier: file:template-fastify
-        version: link:template-fastify
+        version: file:template-fastify
       hono-starter:
         specifier: file:template-hono
-        version: link:template-hono
+        version: file:template-hono
       minimist:
         specifier: ^1.2.8
         version: 1.2.8
@@ -67,7 +67,7 @@ importers:
     dependencies:
       encore.dev:
         specifier: ^1.55.0
-        version: 1.55.0
+        version: 1.56.3
     devDependencies:
       '@tsconfig/node18':
         specifier: ^18.2.6
@@ -603,6 +603,12 @@ packages:
     peerDependencies:
       hono: ^4
 
+  '@hono/node-server@1.19.12':
+    resolution: {integrity: sha512-txsUW4SQ1iilgE0l9/e9VQWmELXifEFvmdA1j6WFh/aFPj99hIntrSsq/if0UWyGVkmrRPKA1wCeP+UCr1B9Uw==}
+    engines: {node: '>=18.14.1'}
+    peerDependencies:
+      hono: ^4
+
   '@jridgewell/gen-mapping@0.3.8':
     resolution: {integrity: sha512-imAbBGkb+ebQyxKgzv5Hu2nmROxoDOXHh80evxdoXNOrvAnVx7zimzc1Oo5h9RlfV4vPXaE2iM5pOFbvOCClWA==}
     engines: {node: '>=6.0.0'}
@@ -972,6 +978,9 @@ packages:
   '@types/node@24.12.0':
     resolution: {integrity: sha512-GYDxsZi3ChgmckRT9HPU0WEhKLP08ev/Yfcq2AstjrDASOYCSXeyjDsHg4v5t4jOj7cyDX3vmprafKlWIG9MXQ==}
 
+  '@types/node@24.12.2':
+    resolution: {integrity: sha512-A1sre26ke7HDIuY/M23nd9gfB+nrmhtYyMINbjI1zHJxYteKR6qSMX56FsmjMcDb3SMcjJg5BiRRgOCC/yBD0g==}
+
   '@types/prompts@2.4.9':
     resolution: {integrity: sha512-qTxFi6Buiu8+50/+3DGIWLHM6QuWsEKugJnnP6iv2Mc4ncxE4A/OJkjuVOA+5X0X1S/nq5VJRa8Lu+nwcvbrKA==}
 
@@ -1290,8 +1299,8 @@ packages:
     resolution: {integrity: sha512-Q0n9HRi4m6JuGIV1eFlmvJB7ZEVxu93IrMyiMsGC0lrMJMWzRgx6WGquyfQgZVb31vhGgXnfmPNNXmxnOkRBrg==}
     engines: {node: '>= 0.8'}
 
-  encore.dev@1.55.0:
-    resolution: {integrity: sha512-qUo7J7vgTEFdHiUHtiIiu9Cf7e8cgVEIWXoJTqmV/YUUHCY8SE3rqZLyJgrUHTK8C5HzlgHwlAzjwjv45TrwbA==}
+  encore.dev@1.56.3:
+    resolution: {integrity: sha512-wixxcZJBwToABkDK8yHt8zI0CcSKs4p8UEjPLxwkoI3/h0QCGasGRKtpZhrqqdBm8zoJBS+C/3S04vVfR/IhMg==}
     engines: {node: '>=18.0.0'}
 
   entities@4.5.0:
@@ -1366,8 +1375,15 @@ packages:
   fast-uri@3.1.0:
     resolution: {integrity: sha512-iPeeDKJSWf4IEOasVVrknXpaBV0IApz/gp7S2bb7Z4Lljbl2MGJRqInZiUrQwV16cpzw/D3S5j5Julj/gT52AA==}
 
+  fastify-starter@file:template-fastify:
+    resolution: {directory: template-fastify, type: directory}
+    engines: {engineStrict: 'true', node: '>=18.4.0'}
+
   fastify@5.8.2:
     resolution: {integrity: sha512-lZmt3navvZG915IE+f7/TIVamxIwmBd+OMB+O9WBzcpIwOo6F0LTh0sluoMFk5VkrKTvvrwIaoJPkir4Z+jtAg==}
+
+  fastify@5.8.4:
+    resolution: {integrity: sha512-sa42J1xylbBAYUWALSBoyXKPDUvM3OoNOibIefA+Oha57FryXKKCZarA1iDntOCWp3O35voZLuDg2mdODXtPzQ==}
 
   fastq@1.20.1:
     resolution: {integrity: sha512-GGToxJ/w1x32s/D2EKND7kTil4n8OVk/9mycTc4VDza13lOvpUZTGX3mFSCtV9ksdGBVzvsyAVLM6mHFThxXxw==}
@@ -1445,6 +1461,14 @@ packages:
   hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
     engines: {node: '>= 0.4'}
+
+  hono-starter@file:template-hono:
+    resolution: {directory: template-hono, type: directory}
+    engines: {engineStrict: 'true', node: '>=18.4.0'}
+
+  hono@4.12.11:
+    resolution: {integrity: sha512-r4xbIa3mGGGoH9nN4A14DOg2wx7y2oQyJEb5O57C/xzETG/qx4c7CVDQ5WMeKHZ7ORk2W0hZ/sQKXTav3cmYBA==}
+    engines: {node: '>=16.9.0'}
 
   hono@4.12.7:
     resolution: {integrity: sha512-jq9l1DM0zVIvsm3lv9Nw9nlJnMNPOcAtsbsgiUhWcFzPE99Gvo6yRTlszSLLYacMeQ6quHD6hMfId8crVHvexw==}
@@ -2618,6 +2642,10 @@ snapshots:
     dependencies:
       hono: 4.12.7
 
+  '@hono/node-server@1.19.12(hono@4.12.11)':
+    dependencies:
+      hono: 4.12.11
+
   '@jridgewell/gen-mapping@0.3.8':
     dependencies:
       '@jridgewell/set-array': 1.2.1
@@ -2878,6 +2906,10 @@ snapshots:
     dependencies:
       undici-types: 7.16.0
 
+  '@types/node@24.12.2':
+    dependencies:
+      undici-types: 7.16.0
+
   '@types/prompts@2.4.9':
     dependencies:
       '@types/node': 24.12.0
@@ -2900,7 +2932,7 @@ snapshots:
 
   '@types/ws@8.18.1':
     dependencies:
-      '@types/node': 24.12.0
+      '@types/node': 24.12.2
 
   '@vitest/expect@4.1.0':
     dependencies:
@@ -3219,7 +3251,7 @@ snapshots:
 
   encodeurl@2.0.0: {}
 
-  encore.dev@1.55.0: {}
+  encore.dev@1.56.3: {}
 
   entities@4.5.0: {}
 
@@ -3359,7 +3391,30 @@ snapshots:
 
   fast-uri@3.1.0: {}
 
+  fastify-starter@file:template-fastify:
+    dependencies:
+      fastify: 5.8.4
+      source-map-support: 0.5.21
+
   fastify@5.8.2:
+    dependencies:
+      '@fastify/ajv-compiler': 4.0.5
+      '@fastify/error': 4.2.0
+      '@fastify/fast-json-stringify-compiler': 5.0.3
+      '@fastify/proxy-addr': 5.1.0
+      abstract-logging: 2.0.1
+      avvio: 9.2.0
+      fast-json-stringify: 6.3.0
+      find-my-way: 9.5.0
+      light-my-request: 6.6.0
+      pino: 10.3.1
+      process-warning: 5.0.0
+      rfdc: 1.4.1
+      secure-json-parse: 4.1.0
+      semver: 7.7.4
+      toad-cache: 3.7.0
+
+  fastify@5.8.4:
     dependencies:
       '@fastify/ajv-compiler': 4.0.5
       '@fastify/error': 4.2.0
@@ -3458,6 +3513,14 @@ snapshots:
   hasown@2.0.2:
     dependencies:
       function-bind: 1.1.2
+
+  hono-starter@file:template-hono:
+    dependencies:
+      '@hono/node-server': 1.19.12(hono@4.12.11)
+      hono: 4.12.11
+      source-map-support: 0.5.21
+
+  hono@4.12.11: {}
 
   hono@4.12.7: {}
 
