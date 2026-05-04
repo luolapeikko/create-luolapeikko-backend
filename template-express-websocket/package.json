@@ -10,7 +10,7 @@
     "dependencies": {
         "express": "^5.2.1",
         "source-map-support": "^0.5.21",
-        "websocket-express": "4.0.1"
+        "websocket-express": "4.1.0"
     },
     "devDependencies": {
         "@tsconfig/node18": "^18.2.6",
