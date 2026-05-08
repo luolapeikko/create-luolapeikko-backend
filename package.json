@@ -22,7 +22,16 @@
   },
   "files": [
     "index.js",
-    "template-*",
+    "template-express/",
+    "!template-express/node_modules/",
+    "template-express-websocket/",
+    "!template-express-websocket/node_modules/",
+    "template-hono/",
+    "!template-hono/node_modules/",
+    "template-fastify/",
+    "!template-fastify/node_modules/",
+    "template-encore/",
+    "!template-encore/node_modules/",
     "dist"
   ],
   "bin": {
@@ -31,13 +40,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "workspaces": [
-    "template-express/",
-    "template-express-websocket/",
-    "template-hono/",
-    "template-fastify/",
-    "template-encore/"
-  ],
   "repository": "github:luolapeikko/create-luolapeikko-backend",
   "devDependencies": {
     "@biomejs/biome": "2.4.7",
