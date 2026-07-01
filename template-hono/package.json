@@ -8,15 +8,15 @@
         "node": ">=18.4.0"
     },
     "dependencies": {
-        "@hono/node-server": "^2.0.1",
-        "hono": "^4.12.18",
+        "@hono/node-server": "^2.0.6",
+        "hono": "^4.12.27",
         "source-map-support": "^0.5.21"
     },
     "devDependencies": {
         "@tsconfig/node18": "^18.2.6",
-        "@types/node": "^24.12.3",
+        "@types/node": "^24.13.2",
         "nodemon": "^3.1.14",
-        "tsx": "4.21.0",
+        "tsx": "^4.22.4",
         "typescript": "^5.9.3"
     },
     "scripts": {
