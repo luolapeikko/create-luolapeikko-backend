@@ -7,7 +7,7 @@
     "node": ">=18.4.0"
   },
   "dependencies": {
-    "encore.dev": "^1.57.9"
+    "encore.dev": "^1.57.11"
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.6",
