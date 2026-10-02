@@ -14,7 +14,7 @@
         "ws": "^8.21.1"
     },
     "devDependencies": {
-        "@tsconfig/node18": "^18.2.6",
+        "@tsconfig/node18": "^18.2.7",
         "@types/express": "^5.0.6",
         "@types/node": "^24.13.2",
         "nodemon": "^3.1.14",
