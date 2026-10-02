@@ -225,7 +225,7 @@ importers:
     dependencies:
       encore.dev:
         specifier: ^1.57.11
-        version: 1.57.11
+        version: 1.58.6
     devDependencies:
       '@tsconfig/node18':
         specifier: ^18.2.6
@@ -1065,8 +1065,8 @@ packages:
     resolution: {integrity: sha512-Q0n9HRi4m6JuGIV1eFlmvJB7ZEVxu93IrMyiMsGC0lrMJMWzRgx6WGquyfQgZVb31vhGgXnfmPNNXmxnOkRBrg==}
     engines: {node: '>= 0.8'}
 
-  encore.dev@1.57.11:
-    resolution: {integrity: sha512-LyOcQS2IYwmyAyfgss5bT8fsCOVvQLwtqXiU7lVji67AkpTk0fqjFGkV1OmaqhOf/GU1t4B4dPM2q95PAQaT0A==}
+  encore.dev@1.58.6:
+    resolution: {integrity: sha512-KUf9ot7peFuNWJYt/GcvRAns2zThCQ4qx33snDHwO4BODkCq7hOSlHY2LbmJ+z/tvq/j7+z2yTlO4i/LEij6/Q==}
     engines: {node: '>=18.0.0'}
 
   es-define-property@1.0.1:
@@ -2390,7 +2390,7 @@ snapshots:
 
   encodeurl@2.0.0: {}
 
-  encore.dev@1.57.11: {}
+  encore.dev@1.58.6: {}
 
   es-define-property@1.0.1: {}
 
