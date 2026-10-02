@@ -10,6 +10,12 @@ updates:
           - "*"
   - package-ecosystem: "npm"
     directory: "/"
+    exclude-paths:
+      - "template-encore"
+      - "template-express"
+      - "template-express-websocket"
+      - "template-fastify"
+      - "template-hono"
     schedule:
       interval: "weekly"
     groups:
