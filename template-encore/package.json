@@ -12,7 +12,7 @@
   "devDependencies": {
     "@tsconfig/node18": "^18.2.6",
     "@types/node": "^24.13.2",
-    "typescript": "^6.0.3"
+    "typescript": "^7.0.2"
   },
   "scripts": {
     "start": "encore run"
