@@ -3,10 +3,6 @@
     "version": "0.0.1",
     "main": "dist/service.js",
     "type": "module",
-    "engines": {
-        "engineStrict": "true",
-        "node": ">=18.4.0"
-    },
     "dependencies": {
         "express": "^5.2.1",
         "source-map-support": "^0.5.21",
@@ -14,9 +10,10 @@
         "ws": "^8.22.0"
     },
     "devDependencies": {
-        "@tsconfig/node18": "^18.2.7",
+        "@tsconfig/node24": "^24.0.5",
         "@types/express": "^5.0.6",
         "@types/node": "^24.13.2",
+        "@types/ws": "^8.18.2",
         "nodemon": "^3.1.14",
         "tsx": "^4.23.15",
         "typescript": "^7.0.2"

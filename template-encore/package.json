@@ -10,7 +10,6 @@
     "encore.dev": "^1.58.6"
   },
   "devDependencies": {
-    "@tsconfig/node18": "^18.2.7",
     "@types/node": "^24.13.2",
     "typescript": "^7.0.2"
   },
