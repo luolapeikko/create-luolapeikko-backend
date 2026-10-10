@@ -10,7 +10,7 @@
     "devDependencies": {
         "@tsconfig/node24": "^24.0.5",
         "@types/express": "^5.0.6",
-        "@types/node": "^24.13.2",
+        "@types/node": "^26.6.4",
         "nodemon": "^3.1.14",
         "tsx": "^4.23.15",
         "typescript": "^7.0.2"
