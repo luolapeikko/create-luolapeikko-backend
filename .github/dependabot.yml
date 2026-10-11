@@ -41,7 +41,7 @@ updates:
       interval: "weekly"
     groups:
       security:
-        dependency-type: "production"
+        dependency-type: "direct"
         applies-to: security-updates
         patterns:
           - "*"
