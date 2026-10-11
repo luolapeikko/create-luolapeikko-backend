@@ -4,7 +4,7 @@
     "main": "dist/service.js",
     "type": "module",
     "dependencies": {
-        "express": "^5.2.1",
+        "express": "^5.3.0",
         "source-map-support": "^0.5.21",
         "websocket-express": "^4.1.0",
         "ws": "^8.22.0"
@@ -21,6 +21,7 @@
     "scripts": {
         "build": "tsc",
         "dev": "nodemon",
-        "start": "node -r source-map-support/register ./dist/service.js"
+        "start": "node -r source-map-support/register ./dist/service.js",
+        "validate": "tsc --noEmit"
     }
 }

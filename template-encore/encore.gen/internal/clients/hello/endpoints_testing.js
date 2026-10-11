@@ -1,9 +1,16 @@
-import { apiCall } from "encore.dev/internal/codegen/api";
+import { apiCall, streamIn, streamOut, streamInOut } from "encore.dev/internal/codegen/api";
 import { registerTestHandler } from "encore.dev/internal/codegen/appinit";
 
-export async function get(params) {
+import * as hello_service from "../../../../hello\\encore.service";
+
+export async function get(params, opts) {
     const handler = (await import("../../../../hello\\hello")).get;
-    registerTestHandler({ service: "hello", name: "get", raw: false, handler, streaming: false });
-    return apiCall("hello", "get", params);
+    registerTestHandler({
+        apiRoute: { service: "hello", name: "get", raw: false, handler, streamingRequest: false, streamingResponse: false },
+        middlewares: hello_service.default.cfg.middlewares || [],
+        endpointOptions: {"expose":true,"auth":false,"isRaw":false,"isStream":false,"tags":[]},
+    });
+
+    return apiCall("hello", "get", params, opts);
 }
 

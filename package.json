@@ -6,9 +6,9 @@
   "main": "index.js",
   "scripts": {
     "build": "tsdown src/index.ts --outDir dist --format esm",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "pnpm run build",
     "test": "vitest test --run",
-    "pretest": "npm run build:templates",
+    "pretest": "pnpm run build:templates",
     "dev": "node --loader ts-node/esm ./src/index.ts",
     "dev:express-starter": "pnpm --filter express-starter run dev",
     "dev:express-websocket-starter": "pnpm --filter express-starter run dev",
@@ -19,7 +19,8 @@
     "start:express-starter": "pnpm --filter express-starter start",
     "build:templates": "pnpm -r build",
     "start": "node ./index.js",
-    "lint": "biome check"
+    "lint": "biome check",
+    "validate": "pnpm -r run validate"
   },
   "files": [
     "index.js",
@@ -59,7 +60,7 @@
     "prompts": "^2.4.2",
     "tsdown": "^0.23.0",
     "tslib": "^2.8.1",
-    "vite": "^8.3.1",
+    "vite": "^8.3.4",
     "vitest": "^5.0.3"
   },
   "packageManager": "pnpm@12.8.1+sha512.f64ba907507f5ceafe06c8d38e6052d0179444580ec1279ddd5bfc11cb48aa8a2644b66598e07e761da84872a9fc57d5f902b87fa49d024198d558612aabbe45"

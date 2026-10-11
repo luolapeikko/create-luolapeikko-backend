@@ -10,10 +10,11 @@
     "encore.dev": "^1.58.6"
   },
   "devDependencies": {
-    "@types/node": "^24.13.2",
+    "@types/node": "^22.20.5",
     "typescript": "^7.0.2"
   },
   "scripts": {
-    "start": "encore run"
+    "start": "encore run",
+    "validate": "tsc --noEmit"
   }
 }
