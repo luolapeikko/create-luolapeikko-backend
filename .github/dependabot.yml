@@ -3,9 +3,9 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
-      weekly-batch:
+      actions-batch:
         patterns:
           - "*"
   - package-ecosystem: "npm"
@@ -17,7 +17,7 @@ updates:
       - "template-fastify"
       - "template-hono"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
       dev-dependencies:
         dependency-type: "development"
@@ -31,14 +31,9 @@ updates:
       - dependency-name: "*"
         update-types: ["version-update:semver-major"]
   - package-ecosystem: "npm"
-    directories:
-      - "/template-encore"
-      - "/template-express"
-      - "/template-express-websocket"
-      - "/template-fastify"
-      - "/template-hono"
+    directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     groups:
       security:
         dependency-type: "direct"
