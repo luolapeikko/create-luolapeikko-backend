@@ -10,33 +10,10 @@ updates:
           - "*"
   - package-ecosystem: "npm"
     directory: "/"
-    exclude-paths:
-      - "template-encore"
-      - "template-express"
-      - "template-express-websocket"
-      - "template-fastify"
-      - "template-hono"
-    schedule:
-      interval: "monthly"
-    groups:
-      dev-dependencies:
-        dependency-type: "development"
-        applies-to: version-updates
-        patterns:
-          - "*"
-        update-types:
-          - "minor"
-          - "patch"
-    ignore:
-      - dependency-name: "*"
-        update-types: ["version-update:semver-major"]
-  - package-ecosystem: "npm"
-    directory: "/"
     schedule:
       interval: "monthly"
     groups:
       security:
-        dependency-type: "direct"
         applies-to: security-updates
         patterns:
           - "*"

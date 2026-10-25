@@ -224,8 +224,8 @@ importers:
   template-encore:
     dependencies:
       encore.dev:
-        specifier: ^1.58.6
-        version: 1.58.6
+        specifier: ^1.58.8
+        version: 1.58.8
     devDependencies:
       '@types/node':
         specifier: ^22.20.5
@@ -1131,8 +1131,8 @@ packages:
     resolution: {integrity: sha512-Q0n9HRi4m6JuGIV1eFlmvJB7ZEVxu93IrMyiMsGC0lrMJMWzRgx6WGquyfQgZVb31vhGgXnfmPNNXmxnOkRBrg==}
     engines: {node: '>= 0.8'}
 
-  encore.dev@1.58.6:
-    resolution: {integrity: sha512-KUf9ot7peFuNWJYt/GcvRAns2zThCQ4qx33snDHwO4BODkCq7hOSlHY2LbmJ+z/tvq/j7+z2yTlO4i/LEij6/Q==}
+  encore.dev@1.58.8:
+    resolution: {integrity: sha512-tay5Hh+26vbZI1NXnIPzWErMnvspBUiFIro2LUHuiEvlQK+S9GhBV6qHWbX0A5mQhmXw3GijDplsxF7HX9hWLA==}
     engines: {node: '>=18.0.0'}
 
   es-define-property@1.0.1:
@@ -2472,7 +2472,7 @@ snapshots:
 
   encodeurl@2.0.0: {}
 
-  encore.dev@1.58.6: {}
+  encore.dev@1.58.8: {}
 
   es-define-property@1.0.1: {}
 
